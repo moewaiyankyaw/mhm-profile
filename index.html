@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Error404 - Hacker Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Code Pro', monospace;
+      color: #0f0;
+      background-color: #000;
+      text-shadow: 0 0 5px #0f0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Matrix Digital Rain Background */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 60px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+
+    /* Hacker Style Card */
+    .card {
+      background: rgba(10, 10, 10, 0.6);
+      border-radius: 16px;
+      padding: 40px 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid #0f0;
+      box-shadow: 
+        0 0 10px #0f0,
+        0 0 20px #0f0,
+        0 0 30px rgba(0, 255, 0, 0.5);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+      animation: fadeIn 1.8s ease forwards;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.95); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+      }
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0f0;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #0f0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px #0f0; }
+      50% { box-shadow: 0 0 25px #0f0, 0 0 40px rgba(0, 255, 0, 0.5); }
+      100% { box-shadow: 0 0 15px #0f0; }
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      color: #0f0;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    .info-box {
+      text-align: left;
+      margin-top: 25px;
+      padding: 0 10px;
+    }
+
+    .info-box h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6em;
+      margin-bottom: 12px;
+      color: #0f0;
+      border-bottom: 1px solid #0f0;
+      padding-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    .info-box ul li {
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    .info-box ul li:hover {
+      color: #0f0;
+      text-shadow: 0 0 5px #0f0;
+    }
+
+    .info-box ul li::before {
+      content: "$ ";
+      color: #0f0;
+      font-weight: bold;
+    }
+
+    .telegram-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 30px;
+      background: transparent;
+      border: 2px solid #0f0;
+      border-radius: 8px;
+      color: #0f0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .telegram-btn:hover {
+      background: rgba(0, 255, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #0f0;
+      text-shadow: 0 0 5px #0f0;
+      text-align: center;
+    }
+
+    /* Terminal blinking cursor */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: #0f0;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Matrix Digital Rain Background -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="card">
+      <img src="file.png" alt="ERROR_404" class="profile-pic" />
+      <h1>ERROR_404</h1>
+      <p>Hi! I'm Error404 — a creative tech lover building bots, websites, and Telegram tools. Owner of <strong>MyID All Hacking Methods</strong> / @Myid_AllHacking_Methods channel.</p>
+
+      <div class="info-box">
+        <h2>About Me</h2>
+        <ul>
+          <li><strong>Country:</strong> Myanmar</li>
+          <li><strong>Age:</strong> 16</li>
+          <li><strong>School:</strong> High School</li>
+          <li><strong>Hobbies:</strong> Coding, Gaming, Designing</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h2>Skills</h2>
+        <ul>
+          <li>PHP & Python Bots</li>
+          <li>HTML, CSS, JS</li>
+          <li>Telegram Bot Development</li>
+          <li>Web UI/UX Design</li>
+          <li>Automation Systems</li>
+        </ul>
+      </div>
+
+      <a href="https://t.me/Myid_AllHacking_Methods" class="telegram-btn" target="_blank">Access Telegram Channel<span class="cursor"></span></a>
+    </div>
+
+    <footer>© 2025 ERROR_404. All systems secured. <span class="cursor"></span></footer>
+  </div>
+
+  <!-- Matrix Background Script -->
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@!&*%';
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    const drops = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -100;
+    }
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 40);
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      columns = Math.floor(canvas.width / fontSize);
+    });
+  </script>
+
+</body>
+</html>
